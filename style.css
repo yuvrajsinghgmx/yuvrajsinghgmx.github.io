@@ -98,3 +98,18 @@ ul li:first-child {
 .btn:hover {
   opacity: 0.8;
 }
+@media (max-width: 576px) {
+  body {
+      font-size: 12px;
+  }
+
+  h1 {
+      font-size: 1em;
+  }
+  .menu{
+    font-size: large;
+  }
+  p {
+      font-size: 0.8em;
+  }
+}
