@@ -2,7 +2,6 @@
   font-family: 'Baloo_Bhai';
   src: url('Baloo_Bhai.ttf') format('truetype');
 }
-
 body {
   background-color: black;
   font-family: Baloo_Bhai;
@@ -10,15 +9,13 @@ body {
   margin-left: 10%;
   margin-right: 10%;
   text-align: center;
+  margin-top: 0px;
 }
 .circular-frame {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
-}
-nav{
-  margin-bottom: 10px;
 }
 .circular-frame img {
   width: 100%;
@@ -56,8 +53,7 @@ ul li:first-child {
 }
 .name{
   border-radius: 5px;
-  font-size: xxx-large;
-  /* border: 1px solid rgba(255, 255, 255, 0.18); */
+  font-size: 40px;
   box-shadow: 0 5px 30px 0 rgba(22, 32, 220, 0.37);
 
 }
@@ -94,9 +90,35 @@ ul li:first-child {
 .twitter {
   background: linear-gradient(45deg, #000000, #4b4b4b, #1da1f2);
 }
+.github {
+  background: linear-gradient(45deg, #333333, #666666, #999999);
+}
 
 .btn:hover {
   opacity: 0.8;
+}
+.intro {
+  font-size: 18px;
+  margin: 10px 0;
+}
+.btn-gradient {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 20px 0;
+  font-size: 16px;
+  color: white;
+  background: linear-gradient(45deg, #ff6b6b, #f06595, #f3a683);
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(45deg, #ff6b6b, #ff8787, #ffc4a3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.5);
 }
 @media (max-width: 576px) {
   body {
