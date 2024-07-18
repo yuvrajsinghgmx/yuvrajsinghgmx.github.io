@@ -1,0 +1,17 @@
+body {
+  background-color: black;
+  color: white;
+  margin: 0;
+}
+h1 {
+  text-align: center;
+  margin-top: 20%;
+  border: solid;
+  border-radius: 10px;
+  padding: 8%;
+  margin-inline: 25%;
+  box-shadow: 0 25px 200px 0 rgba(31, 184, 192, 0.747);
+}
+.birdimg {
+  margin-inline: 30%;
+}

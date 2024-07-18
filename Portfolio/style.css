@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Baloo_Bhai';
-  src: url('Baloo_Bhai.ttf') format('truetype');
+  font-family: "Baloo_Bhai";
+  src: url("../fonts/Baloo_Bhai.ttf") format("truetype");
 }
 body {
   background-color: black;
@@ -51,11 +51,10 @@ ul li:first-child {
 .hello {
   color: rgb(252, 180, 86);
 }
-.name{
+.name {
   border-radius: 5px;
   font-size: 40px;
   box-shadow: 0 5px 30px 0 rgba(22, 32, 220, 0.37);
-
 }
 .menu {
   text-decoration: none;
@@ -122,25 +121,25 @@ ul li:first-child {
 }
 @media (max-width: 576px) {
   body {
-      font-size: 12px;
+    font-size: 12px;
   }
-  ul li:first-child{
+  ul li:first-child {
     display: none;
   }
   h1 {
-      font-size: 1em;
+    font-size: 1em;
   }
-  .btn{
+  .btn {
     font-size: 0px;
     width: 80px;
   }
   .btn i {
     font-size: 24px;
   }
-  .menu{
+  .menu {
     font-size: large;
   }
   p {
-      font-size: 0.8em;
+    font-size: 0.8em;
   }
 }
