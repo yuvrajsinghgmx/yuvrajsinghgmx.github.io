@@ -130,6 +130,13 @@ ul li:first-child {
   h1 {
       font-size: 1em;
   }
+  .btn{
+    font-size: 0px;
+    width: 80px;
+  }
+  .btn i {
+    font-size: 24px;
+  }
   .menu{
     font-size: large;
   }
