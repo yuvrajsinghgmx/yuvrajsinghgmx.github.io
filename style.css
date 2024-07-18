@@ -124,7 +124,9 @@ ul li:first-child {
   body {
       font-size: 12px;
   }
-
+  ul li:first-child{
+    display: none;
+  }
   h1 {
       font-size: 1em;
   }
