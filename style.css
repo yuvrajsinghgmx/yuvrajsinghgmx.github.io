@@ -11,6 +11,10 @@ body {
   text-align: center;
   margin-top: 0px;
 }
+.profilepic{
+  display: flex;
+  justify-content: center;
+}
 .circular-frame {
   width: 200px;
   height: 200px;
@@ -22,6 +26,7 @@ body {
   height: 100%;
   object-fit: cover;
   border: 2px solid #fff;
+
 }
 ul {
   display: flex;

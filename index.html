@@ -8,32 +8,40 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PortFolio</title>
-    <link rel="stylesheet" href="Portfolio/style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
   </head>
   <body>
-    <nav>
-      <ul>
-        <li>
-          <a href="#home" class="menu">YUVRAJ SINGH</a>
-        </li>
-        <li><a href="#about" class="menu">About</a></li>
-        <li><a href="#resume" class="menu">Resume</a></li>
-        <li><a href="#contact" class="menu">Contact</a></li>
-      </ul>
-    </nav>
-    <center id="home">
-      <div class="circular-frame">
-        <img src="Portfolio/pic1.jpg" alt="Image Loading" />
+      <nav>
+        <ul>
+          <li>
+            <a href="#home" class="menu">YUVRAJ SINGH</a>
+          </li>
+          <li><a href="#about" class="menu">About</a></li>
+          <li><a href="#resume" class="menu">Resume</a></li>
+          <li><a href="#contact" class="menu">Contact</a></li>
+        </ul>
+      </nav>
+      <div id="home">
+        <div class="profilepic">
+          <div class="circular-frame">
+            <img src="pic1.jpg" alt="Image Loading" />
+          </div>
+        </div>
+        <div class="greeting">
+          <h2 class="hello">HELLO!</h2>
+        </div>
+        <div class="name">
+          <h1><span style="color: aliceblue">I'm</span> YUVRAJ SINGH</h1>
+        </div>
       </div>
-      <div class="greeting">
-        <h2 class="hello">HELLO!</h2>
-      </div>
-      <div class="name">
-        <h1><span style="color: aliceblue">I'm</span> YUVRAJ SINGH</h1>
-      </div>
-
       <h2 class="intro">A Software Developer from India.</h2>
-      <a href="Projects.html" class="btn-gradient">View My Recent Projects</a>
+      <a
+        href="Projects.html"
+        onclick="showSection('Projects')"
+        class="btn-gradient"
+        >View My Recent Projects</a
+      >
       <div class="social-links">
         <a
           href="https://instagram.com/yuvrajsinghgmx"
@@ -59,9 +67,7 @@
           target="_blank"
           ><i class="fab fa-github"></i> GitHub</a
         >
-        <!-- Working Here -->
-      </div>
-    </center>
-    <center id="about"></center>
+
+    </div>
   </body>
 </html>

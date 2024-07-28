@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Baloo_Bhai";
+  src: url("../fonts/Baloo_Bhai.ttf") format("truetype");
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+  color: whitesmoke;
+  font-family: Baloo_Bhai;
+  text-align: center;
+  overflow: hidden;
+}
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.introimg {
+  animation: rotate360 30s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+  
+}
+.container {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.wlcmtxt {
+  font-size: 44px;
+  font-weight: bold;
+  color: #00BFFF;
+}
