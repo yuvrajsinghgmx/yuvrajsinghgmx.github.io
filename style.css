@@ -11,7 +11,7 @@ body {
   text-align: center;
   margin-top: 0px;
 }
-.profilepic{
+.profilepic {
   display: flex;
   justify-content: center;
 }
@@ -26,7 +26,6 @@ body {
   height: 100%;
   object-fit: cover;
   border: 2px solid #fff;
-
 }
 ul {
   display: flex;
@@ -147,4 +146,10 @@ ul li:first-child {
   p {
     font-size: 0.8em;
   }
+}
+.hidden {
+  display: none;
+}
+body::-webkit-scrollbar{
+  display: none;
 }
