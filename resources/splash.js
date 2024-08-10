@@ -17,14 +17,6 @@ function typeEffect() {
           typingText.textContent = "";
           typeEffect();
         }, 1000);
-      } else {
-        document.querySelector(".splash-screen").classList.add("hidden");
-        fetch("index.html")
-          .then((response) => response.text())
-          .then((data) => {
-            document.body.innerHTML = data;
-            document.getElementById("indexpage").classList.remove("hidden");
-          });
       }
     }
   }
