@@ -58,6 +58,7 @@ window.onload = function () {
   const about = document.getElementById("about");
   const contact = document.getElementById("contact");
   const ahome = document.getElementById("ahome");
+  const contactbtn2 = document.getElementById("contactbtn2");
 
   function showSection(sectionToShow) {
     const sections = [about, resume, home, contact];
@@ -92,5 +93,9 @@ window.onload = function () {
   ahome.addEventListener("click", (event) => {
     event.preventDefault();
     showSection(home);
+  });
+  contactbtn2.addEventListener("click", (event) => {
+    event.preventDefault();
+    showSection(contact);
   });
 };
