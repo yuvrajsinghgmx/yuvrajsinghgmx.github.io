@@ -193,12 +193,23 @@ a {
   font-size: xx-large;
   display: none;
 }
+#contactbtn2 {
+  font-size: xx-large;
+  display: none;
+}
 @media (max-width: 576px) {
   * {
     cursor: default;
   }
   body {
     font-size: 12px;
+    overflow-y: hidden;
+  }
+  #contactbtn {
+    display: none;
+  }
+  #contactbtn2 {
+    display: inline;
   }
   #custom-cursor {
     display: none;
@@ -227,5 +238,6 @@ a {
   }
   #ahome {
     display: inline;
+    text-decoration: none;
   }
 }
