@@ -6,7 +6,7 @@ window.onload = function () {
     setTimeout(() => {
       splashscreen.classList.add("hidden");
       Maincontent.classList.remove("hidden");
-    }, 1000);
+    }, 5000);
   }
   timedClassChange();
 
