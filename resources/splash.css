@@ -15,7 +15,6 @@
   animation: rotate360 30s linear infinite;
   z-index: -1;
   pointer-events: none;
-  
 }
 .container {
   justify-content: center;
@@ -26,5 +25,20 @@
 .wlcmtxt {
   font-size: 44px;
   font-weight: bold;
-  color: #00BFFF;
+  color: #00bfff;
+}
+
+.logo {
+  margin-top: 16%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logoimg {
+  width: 250px;
+  height: 250px;
+}
+.myname {
+  font-weight: bolder;
+  font-size: xxx-large;
 }
