@@ -22,4 +22,4 @@ function typeEffect() {
   }
 }
 
-typeEffect();
+// typeEffect();

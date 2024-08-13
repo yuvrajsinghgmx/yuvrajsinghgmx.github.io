@@ -242,4 +242,10 @@ a {
     display: inline;
     text-decoration: none;
   }
+  .splashscreen {
+    display: none;
+  }
+  .MainContent {
+    display: block;
+  }
 }
