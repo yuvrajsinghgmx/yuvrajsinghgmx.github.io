@@ -2,34 +2,10 @@
   font-family: "Baloo_Bhai";
   src: url("../fonts/Baloo_Bhai.ttf") format("truetype");
 }
-@keyframes rotate360 {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.introimg {
-  animation: rotate360 30s linear infinite;
-  z-index: -1;
-  pointer-events: none;
-}
-.container {
-  justify-content: center;
-  display: flex;
-  align-items: center;
-}
-
-.wlcmtxt {
-  font-size: 44px;
-  font-weight: bold;
-  color: #00bfff;
-}
 
 .logo {
   margin-top: 16%;
+  margin-bottom: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,35 +13,63 @@
 .logoimg {
   width: 250px;
   height: 250px;
-  /* filter: drop-shadow(0 0 15px #00bfff); */
-  animation: pulse 2.5s infinite;
+  filter: drop-shadow(0 0 15px #00bfff);
 }
-.myname {
-  margin-top: 12%;
-  font-weight: bolder;
-  font-size: xxx-large;
-  /* font-family: 'Montserrat', sans-serif; */
-  /* color: #000;
-  text-shadow: 0px 0px 2.5px #00bfff, 0px 0px 5px #00bfff, 1px 1px 25px #00bfff;
-  border: solid white;
-  box-shadow: 0px 0px 5px 0px #00bfff, 0px 0px 10px 0px #00bfff,
-    0px 0px 50px 0px #00bfff, inset 0px 0px 20px #00bfff;
-  box-sizing: border-box;
-  border-radius: 4px; */
+
+.up,
+.down {
+  margin: 0;
+  text-align: center;
+  font-size: 50px;
+  overflow: hidden;
+  line-height: 1;
 }
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.5;
+
+.up span {
+  display: block;
+  animation: reveal 0.5s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards,
+    collapse 0.5s cubic-bezier(0.77, 0, 0.175, 1) 2s forwards;
+}
+.down span {
+  display: inline-block;
+  animation: reveald 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards,
+    collapsed 0.5s cubic-bezier(0.77, 0, 0.175, 1) 2s forwards;
+}
+@keyframes reveal {
+  0% {
+    transform: translateY(100%);
   }
-  50% {
-    transform: scale(1.5);
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes collapse {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+@keyframes reveald {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
     opacity: 1;
   }
 }
-@media (max-width: 576px) {
-  .myname {
-    margin-top: 80%;
+
+@keyframes collapsed {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
   }
 }

@@ -242,10 +242,13 @@ a {
     display: inline;
     text-decoration: none;
   }
-  .splashscreen {
-    display: none;
-  }
-  .MainContent {
+  .pdfsave {
     display: block;
   }
+  /* .splashscreen {
+    display: none;
+  }s
+  .MainContent {
+    display: block;
+  } */
 }
