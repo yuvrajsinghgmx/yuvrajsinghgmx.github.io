@@ -14,6 +14,20 @@ body {
   text-align: center;
   margin-top: 0px;
 }
+.menu {
+  text-decoration: none;
+  padding: 20px;
+  color: #fff;
+  font-size: xx-large;
+}
+.menu:active,
+.menu:focus {
+  background: linear-gradient(90deg, #00d2ff, #3a47d5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
 .profilepic {
   display: flex;
   justify-content: center;
@@ -59,16 +73,13 @@ ul li:first-child {
   color: rgb(252, 180, 86);
 }
 .name {
+  z-index: -1;
+  cursor: none;
   border-radius: 5px;
   font-size: 40px;
   box-shadow: 0 5px 30px 0 rgba(22, 32, 220, 0.37);
 }
-.menu {
-  text-decoration: none;
-  padding: 20px;
-  color: #fff;
-  font-size: xx-large;
-}
+
 .social-links {
   margin-top: 20px;
 }
@@ -82,7 +93,6 @@ ul li:first-child {
   text-decoration: none;
   color: white;
   border-radius: 30px;
-  transition: background 0.3s ease;
 }
 
 .instagram {
@@ -141,7 +151,7 @@ body::-webkit-scrollbar {
   border: white solid;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 999999;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -188,7 +198,6 @@ a {
   pointer-events: none;
   transition: transform 0.2s ease-out;
 }
-
 .ahome {
   font-size: xx-large;
   display: none;

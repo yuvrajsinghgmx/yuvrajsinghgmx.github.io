@@ -22,10 +22,16 @@ window.onload = function () {
   // Update custom cursor position
   document.addEventListener("mousemove", (event) => {
     const cursor = document.getElementById("custom-cursor");
-    cursor.style.left = `${event.clientX - cursor.offsetWidth / 2}px`;
-    cursor.style.top = `${event.clientY - cursor.offsetHeight / 2}px`;
+    cursor.style.left = `${event.pageX - cursor.offsetWidth / 2}px`;
+    cursor.style.top = `${event.pageY - cursor.offsetHeight / 2}px`;
   });
 
+  // Update target position
+  function updateTargetPosition() {
+    const targetRect = target.getBoundingClientRect();
+    targetX = targetRect.left + targetRect.width / 2;
+    targetY = targetRect.top + targetRect.height / 2;
+  }
   // Animate tracker with distance
   function animateTracker() {
     const angle = Math.atan2(trackerY - targetY, trackerX - targetX);
@@ -36,13 +42,6 @@ window.onload = function () {
     tracker.style.left = trackerX + "px";
     tracker.style.top = trackerY + "px";
     requestAnimationFrame(animateTracker);
-  }
-
-  // Update target position
-  function updateTargetPosition() {
-    const targetRect = target.getBoundingClientRect();
-    targetX = targetRect.left + targetRect.width / 2;
-    targetY = targetRect.top + targetRect.height / 2;
   }
 
   // Start the tracker animation after a 1-second delay

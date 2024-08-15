@@ -1,21 +1,20 @@
-#mail-button {
-  color: whitesmoke;
-  text-decoration: none;
-  font-size: large;
-}
 #aboutbg {
   width: 100%;
+  margin-bottom: 3%;
 }
 .about-design-img {
-  margin: 2%;
+  margin-top: 7%;
   width: 24%;
   animation: rotate infinite 5s linear;
+  z-index: -1;
 }
-
-.mail-button {
-  font-size: larger;
-  z-index: 2;
-  margin-bottom: 4%;
+.send-mail {
+  margin-top: 90px;
+  color: white;
+  text-decoration: none;
+  border: whitesmoke solid 2px;
+  padding: 8px;
+  border-radius: 20px;
 }
 @keyframes rotate {
   from {
