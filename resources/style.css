@@ -153,6 +153,7 @@ body::-webkit-scrollbar {
   pointer-events: none;
   z-index: 999999;
   display: flex;
+  transform: translate(-50%, -0%);
   justify-content: center;
   align-items: center;
 }
