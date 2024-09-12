@@ -217,9 +217,9 @@ a {
     display: none;
   }
   #contactbtn2 {
-    font-size: medium;
+    font-size: x-large;
     display: inline;
-    border: whitesmoke solid 2px;
+    /* border: whitesmoke solid 2px; */
     border-radius: 30px;
     padding: 7px;
   }

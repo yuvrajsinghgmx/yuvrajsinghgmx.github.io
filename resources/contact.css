@@ -9,12 +9,13 @@
   z-index: -1;
 }
 .send-mail {
+  font-size: x-large;
   margin-top: 90px;
   color: white;
   text-decoration: none;
-  border: whitesmoke solid 2px;
+  /* border: whitesmoke solid 2px; */
   padding: 8px;
-  border-radius: 20px;
+  /* border-radius: 20px; */
 }
 @keyframes rotate {
   from {
