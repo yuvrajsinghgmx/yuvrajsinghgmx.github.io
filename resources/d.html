@@ -1,309 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgroCrop - Fertilizer Recommendation App</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      font-family: 'Poppins', sans-serif;
-      color: #fff;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-    }
-    header {
-      text-align: center;
-      padding: 2rem;
-    }
-    header h1 {
-      font-size: 3rem;
-      letter-spacing: 2px;
-    }
-    .download-btn {
-      display: inline-block;
-      background: linear-gradient(45deg, #ff416c, #ff4b2b);
-      padding: 15px 25px;
-      border-radius: 30px;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      color: #fff;
-      text-align: center;
-      margin-top: 20px;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-    .download-btn:hover {
-      transform: scale(1.1);
-    }
-    .technologies {
-      padding: 3rem 0;
-      text-align: center;
-    }
-    .technologies h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .tech-icons {
-      display: flex;
-      justify-content: space-around;
-      margin: 2rem 0;
-    }
-    .tech-icon-container {
-      text-align: center;
-    }
-    .tech-icons i {
-      font-size: 3rem;
-      color: #fff;
-      transition: color 0.3s;
-    }
-    .tech-icons i:hover {
-      color: #ff416c;
-    }
-    .tech-name {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-    }
-    .description {
-      margin: 2rem;
-      text-align: center;
-      font-size: 1.1rem;
-    }
-    .screenshots {
-      padding: 3rem 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-    }
-    .screenshots img {
-      width: 30%;
-      margin: 1rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
-      transition: transform 0.3s;
-    }
-    .screenshots img:hover {
-      transform: scale(1.05);
-    }
-    .graph-container {
-      width: 80%;
-      margin: 0 auto;
-    }
-    .progress {
-      margin: 2rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .progress-bar {
-      flex-grow: 1;
-      height: 10px;
-      background: rgba(255, 255, 255, 0.2);
-      position: relative;
-      margin: 0 10px;
-    }
-    .progress-bar::before {
-      content: '';
-      position: absolute;
-      width: 80%;
-      height: 100%;
-      background: linear-gradient(45deg, #ff416c, #ff4b2b);
-    }
-    .footer {
-      padding: 1rem;
-      text-align: center;
-      background: #111;
-    }
-    .footer a {
-      color: #ff416c;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    #downloadModal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgroCrop - Fertilizer Recommendation App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+        font-family: "Poppins", sans-serif;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
       }
-
-      #downloadModalContent {
-        background-color: #222;
-        padding: 30px;
-        margin: 15% auto;
-        width: 400px;
-        border-radius: 10px;
+      header {
+        text-align: center;
+        padding: 2rem;
+      }
+      header h1 {
+        font-size: 3rem;
+        letter-spacing: 2px;
+      }
+      .download-btn {
+        display: inline-block;
+        background: linear-gradient(45deg, #ff416c, #ff4b2b);
+        padding: 15px 25px;
+        border-radius: 30px;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        color: #fff;
+        text-align: center;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+      .download-btn:hover {
+        transform: scale(1.1);
+      }
+      .technologies {
+        padding: 3rem 0;
         text-align: center;
       }
-
-      #downloadModalContent input {
-        width: 80%;
-        padding: 10px;
-        margin-bottom: 20px;
-        border: none;
-        border-radius: 5px;
+      .technologies h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
       }
-
-      #downloadModalContent button {
-        padding: 10px 20px;
-        background-color: #ff9800;
-        color: #ffffff;
-        border: none;
-        border-radius: 5px;
-        font-size: 1rem;
-        cursor: pointer;
+      .tech-icons {
+        display: flex;
+        justify-content: space-around;
+        margin: 2rem 0;
+        flex-wrap: wrap;
       }
-
-      #downloadModalContent button:hover {
-        background-color: #ff6d00;
+      .tech-icon-container {
+        text-align: center;
+        flex: 1;
+        margin: 1rem;
       }
-
-      .close {
-        float: right;
-        font-size: 1.5rem;
+      .tech-icons i {
+        font-size: 3rem;
         color: #fff;
-        cursor: pointer;
+        transition: color 0.3s;
       }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>AgroCrop - Fertilizer Recommendation App</h1>
-    <div class="download-btn" id="download-btn">Download App</div>
-  </header>
+      .tech-icons i:hover {
+        color: #ff416c;
+      }
+      .tech-name {
+        margin-top: 0.5rem;
+        font-size: 1.2rem;
+      }
+      .description {
+        margin: 2rem;
+        text-align: center;
+        font-size: 1.1rem;
+      }
+      .screenshots {
+        padding: 3rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      .screenshots img {
+        width: 30%;
+        margin: 1rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+        transition: transform 0.3s;
+      }
+      .screenshots img:hover {
+        transform: scale(1.05);
+      }
+      .graph-container {
+        width: 80%;
+        margin: 0 auto;
+      }
+      .progress {
+        margin: 2rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .progress-bar {
+        flex-grow: 1;
+        height: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        position: relative;
+        margin: 0 10px;
+      }
+      .progress-bar::before {
+        content: "";
+        position: absolute;
+        width: 80%;
+        height: 100%;
+        background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      }
+      .footer {
+        padding: 1rem;
+        text-align: center;
+        background: #111;
+      }
+      .footer a {
+        color: #ff416c;
+        text-decoration: none;
+        font-weight: bold;
+      }
 
-  <section class="technologies">
-    <h2>Technologies Used</h2>
-    <div class="tech-icons">
-      <div class="tech-icon-container">
-        <i class="fab fa-android"></i>
-        <div class="tech-name">Android</div>
-      </div>
-      <div class="tech-icon-container">
-        <i class="fab fa-python"></i>
-        <div class="tech-name">Python</div>
-      </div>
-      <div class="tech-icon-container">
-        <i class="fab fa-aws"></i>
-        <div class="tech-name">AWS EC2</div>
-      </div>
-      <div class="tech-icon-container">
-        <i class="fas fa-server"></i>
-        <div class="tech-name">Gunicorn</div>
-      </div>
-      <div class="tech-icon-container">
-        <i class="fas fa-database"></i>
-        <div class="tech-name">Database</div>
-      </div>
-    </div>
-  </section>
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2.5rem;
+        }
+        .tech-icons {
+          flex-direction: column;
+          align-items: center;
+        }
+        .tech-icon-container {
+          margin: 1rem 0;
+        }
+        .screenshots img {
+          width: 80%;
+        }
+      }
+      @media (max-width: 480px) {
+        header h1 {
+          font-size: 2rem;
+        }
+        .download-btn {
+          font-size: 1rem;
+          padding: 10px 20px;
+        }
+        .tech-icons i {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>AgroCrop - Fertilizer Recommendation App</h1>
+      <div class="download-btn" id="download-btn">Download App</div>
+    </header>
 
-  <section class="description">
-    <p></p>
+    <section class="technologies">
+      <h2>Technologies Used</h2>
+      <div class="tech-icons">
+        <div class="tech-icon-container">
+          <i class="fab fa-android"></i>
+          <div class="tech-name">Android</div>
+        </div>
+        <div class="tech-icon-container">
+          <i class="fab fa-python"></i>
+          <div class="tech-name">Python</div>
+        </div>
+        <div class="tech-icon-container">
+          <i class="fab fa-aws"></i>
+          <div class="tech-name">AWS EC2</div>
+        </div>
+        <div class="tech-icon-container">
+          <i class="fas fa-server"></i>
+          <div class="tech-name">Gunicorn</div>
+        </div>
+        <div class="tech-icon-container">
+          <i class="fas fa-database"></i>
+          <div class="tech-name">Database</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="description">
+      <p>
         AgroCrop is an Android app designed to help farmers by recommending
         fertilizers, predicting the best crop for a given soil, and offering
         organic farming tips. This project was built using modern mobile
         development tools and cloud-hosted APIs.
       </p>
-     
-    <p>During this project, I mastered various technologies including Android development with Jetpack Compose, Python with Flask, and setting up a server using AWS EC2 and Gunicorn. Additionally, I learned web hosting and DNS settings to bring everything together.</p>
-  </section>
+      <p>
+        During this project, I mastered various technologies including Android
+        development with Jetpack Compose, Python with Flask, and setting up a
+        server using AWS EC2 and Gunicorn. Additionally, I learned web hosting
+        and DNS settings to bring everything together.
+      </p>
+    </section>
 
-  <section class="screenshots">
-    <img src="../assets/corosol6.png" alt="App Screenshot 1">
-    <img src="../assets/corosol6.png" alt="App Screenshot 2">
-    <img src="../assets/corosol6.png" alt="App Screenshot 3">
-    <img src="../assets/corosol6.png" alt="App Screenshot 4">
-    <img src="../assets/corosol6.png" alt="App Screenshot 5">
-    <img src="../assets/corosol6.png" alt="App Screenshot 6">
-  </section>
+    <section class="screenshots">
+      <img src="../assets/agroc6.jpg" alt="App Screenshot 1" />
+      <img src="../assets/agroc1.jpg" alt="App Screenshot 2" />
+      <img src="../assets/agroc4.jpg" alt="App Screenshot 3" />
+      <img src="../assets/agroc3.jpg" alt="App Screenshot 4" />
+      <img src="../assets/agroc2.jpg" alt="App Screenshot 5" />
+      <img src="../assets/agroc5.jpg" alt="App Screenshot 6" />
+    </section>
 
-  <section class="graph-container">
-    <div class="progress">
-      <span>Jetpack Compose</span>
-      <div class="progress-bar"></div>
-      <span>80%</span>
-    </div>
-    <div class="progress">
-      <span>Flask</span>
-      <div class="progress-bar"></div>
-      <span>90%</span>
-    </div>
-    <div class="progress">
-      <span>AWS EC2</span>
-      <div class="progress-bar"></div>
-      <span>85%</span>
-    </div>
-    <div class="progress">
-      <span>Gunicorn</span>
-      <div class="progress-bar"></div>
-      <span>70%</span>
-    </div>
-  </section>
+    <section class="graph-container">
+      <div class="progress">
+        <span>Jetpack Compose</span>
+        <div class="progress-bar"></div>
+        <span>80%</span>
+      </div>
+      <div class="progress">
+        <span>Flask</span>
+        <div class="progress-bar"></div>
+        <span>90%</span>
+      </div>
+      <div class="progress">
+        <span>AWS EC2</span>
+        <div class="progress-bar"></div>
+        <span>85%</span>
+      </div>
+      <div class="progress">
+        <span>Gunicorn</span>
+        <div class="progress-bar"></div>
+        <span>70%</span>
+      </div>
+    </section>
 
-  <footer class="footer">
-    <p>Developed by <a href="https://yuvrajsinghgmx.github.io" target="_blank">Yuvraj Singh</a></p>
-  </footer>
-    <!-- Download Modal -->
-    <div id="downloadModal">
-        <div id="downloadModalContent">
-          <span class="close" onclick="closeModal()">&times;</span>
-          <h2>Enter Your Name to Download</h2>
-          <form id="downloadForm" onsubmit="submitForm(event)">
-            <input type="text" id="nameInput" placeholder="Your Name" required />
-            <button type="submit">Download</button>
-          </form>
-        </div>
-    </div>
-  <script>
-     function openModal() {
-        document.getElementById("downloadModal").style.display = "block";
-      }
+    <footer class="footer">
+      <p>
+        &copy; 2024 Developed by
+        <a href="https://yuvrajsingh.tech"> Yuvraj Singh</a>
+      </p>
+    </footer>
+    <script>
+      const downloadBtn = document.getElementById("download-btn");
+      downloadBtn.addEventListener("click", async () => {
+        const username = prompt("Enter your name to download the app:");
+        if (username) {
+          fetch("https://fpm.yuvrajsingh.tech/save_name", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `username=${encodeURIComponent(username)}`,
+          });
 
-      function closeModal() {
-        document.getElementById("downloadModal").style.display = "none";
-      }
-
-          function submitForm(event) {
-        event.preventDefault();
-        const name = document.getElementById("nameInput").value;
-        // Make an AJAX request to store name in the MySQL server (this would be handled on the backend)
-        console.log(`Name submitted: ${name}`);
-        closeModal();
-        // Redirect to download app file
-        window.location.href = "path/to/agrocrop.apk";
-      }
-    document.getElementById("download-btn").addEventListener("click", function() {
-      let userName = prompt("Please enter your name to download the app:");
-      if (userName) {
-        fetch('your-server-url-to-store-name', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ name: userName })
-        })
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            window.location.href = 'your-app-download-link.apk'; // Trigger app download
-          }
-        })
-        .catch(error => console.error('Error:', error));
-      }
-    });
-    window.onclick = function (event) {
-        const modal = document.getElementById("downloadModal");
-        if (event.target == modal) {
-          closeModal();
+          alert(`Thanks, ${username}! Your app will download automatically.`);
+          window.location.href = "../assets/AgroCrop.apk";
         }
-      };
-  </script>
-</body>
+      });
+    </script>
+  </body>
 </html>
