@@ -1,17 +1,240 @@
 <!DOCTYPE html>
-<html class="Projects" lang="en">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="project.css" />
+    <title>Yuvraj Singh's Projects</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        cursor: none;
+      }
+      .container {
+        width: 85%;
+        margin: 0 auto;
+        padding: 60px 0;
+      }
+      h1 {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 50px;
+        letter-spacing: 2px;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+        justify-items: center;
+        margin-bottom: 50px;
+      }
+      .card {
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.08);
+        border-radius: 15px;
+        padding: 25px 20px 60px;
+        width: 100%;
+        max-width: 360px;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(6px);
+        transition: transform 0.3s ease, box-shadow 0.3s ease,
+          background 0.4s ease;
+        text-align: center;
+        cursor: pointer;
+      }
+      .card:hover {
+        transform: scale(1.05);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0.05)
+        );
+        box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.4);
+      }
+
+      .project-title {
+        font-size: 1.7rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #fff;
+      }
+      .project-description {
+        font-size: 1rem;
+        margin-bottom: 25px;
+        color: #ddd;
+        line-height: 1.5;
+      }
+
+      .card-icons {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .card-icons i {
+        font-size: 2rem;
+        color: #fff;
+      }
+      .view-btn {
+        text-decoration: none;
+        color: #fff;
+        background-color: #3498db;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+      }
+      .view-btn:hover {
+        background-color: #2980b9;
+      }
+      .custom-cursor {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: white;
+        position: absolute;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+      }
+      a:hover ~ .custom-cursor,
+      .card:hover ~ .custom-cursor ~ {
+        width: 600px;
+        height: 60px;
+      }
+      a,
+      .card {
+        cursor: none;
+      }
+      @media (max-width: 768px) {
+        .project-grid {
+          gap: 25px;
+        }
+        .card {
+          padding: 20px 15px 60px;
+        }
+        .project-title {
+          font-size: 1.5rem;
+        }
+        .project-description {
+          font-size: 0.95rem;
+        }
+      }
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 2.5rem;
+        }
+        .project-title {
+          font-size: 1.3rem;
+        }
+        .project-description {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1>Loading ...</h1>
-    <center>
-      <div class="birdimg">
-        <img src="../assets/bird.png" width="100%" alt="" class="imageofbird" />
+    <div class="container">
+      <h1>Yuvraj Singh's Projects</h1>
+      <div class="custom-cursor"></div>
+
+      <div class="project-grid">
+        <div class="card">
+          <div class="project-title">CMT (Cold Mailing Tool)</div>
+          <div class="project-description">
+            A powerful, user-friendly application to generate cold emails with
+            Firebase integration.
+          </div>
+          <div class="card-icons">
+            <a href="cmt.html" class="view-btn">View Project</a>
+            <i class="fas fa-envelope"></i>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="project-title">Fertilizer Recommendation App</div>
+          <div class="project-description">
+            An Android app that provides fertilizer recommendations based on
+            soil data, hosted on AWS EC2 and integrated with an AI model.
+          </div>
+          <div class="card-icons">
+            <a href="d.html" class="view-btn">View Project</a>
+            <i class="fas fa-seedling"></i>
+          </div>
+        </div>
+
+        <!-- <div class="card">
+          <div class="project-title">ESP8266 Fan Controller</div>
+          <div class="project-description">
+            Control fan speed using a Wi-Fi module and mobile app, perfect for
+            IoT projects.
+          </div>
+          <div class="card-icons">
+            <a href="#" class="view-btn">View Project</a>
+            <i class="fas fa-fan"></i>
+          </div>  
+        </div> -->
+        <!-- <div class="card">
+          <div class="project-title">Your Doctor's Desk</div>
+          <div class="project-description">
+            A blogging website for a medical professional to share knowledge and
+            insights with the community.
+          </div>
+          <div class="card-icons">
+            <a href="#" class="view-btn">View Project</a>
+            <i class="fas fa-stethoscope"></i>
+          </div>
+        </div> -->
       </div>
-    </center>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+
+    <script>
+      document.querySelectorAll(".card").forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          gsap.to(card, { scale: 1.05, duration: 0.4 });
+        });
+        card.addEventListener("mouseleave", () => {
+          gsap.to(card, { scale: 1, duration: 0.4 });
+        });
+      });
+
+      ScrollReveal().reveal(".card", {
+        origin: "bottom",
+        distance: "50px",
+        duration: 1000,
+        easing: "ease-out",
+        interval: 150,
+      });
+      VanillaTilt.init(document.querySelectorAll(".card"), {
+        max: 10,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.3,
+      });
+      document.addEventListener("mousemove", function (e) {
+        const cursor = document.querySelector(".custom-cursor");
+        cursor.style.left = `${e.pageX}px`;
+        cursor.style.top = `${e.pageY}px`;
+      });
+    </script>
   </body>
 </html>

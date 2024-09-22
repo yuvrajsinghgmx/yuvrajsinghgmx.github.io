@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CMT - Cold Mailing Tool</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+        font-family: "Poppins", sans-serif;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+      header {
+        text-align: center;
+        padding: 2rem;
+      }
+      header h1 {
+        font-size: 3rem;
+        letter-spacing: 2px;
+      }
+      .download-btn {
+        display: inline-block;
+        background: linear-gradient(45deg, #ff416c, #ff4b2b);
+        padding: 15px 25px;
+        border-radius: 30px;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        color: #fff;
+        text-align: center;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+      .download-btn:hover {
+        transform: scale(1.1);
+      }
+      .technologies {
+        padding: 3rem 0;
+        text-align: center;
+      }
+      .technologies h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      .tech-icons {
+        display: flex;
+        justify-content: space-around;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+      }
+      .tech-icon-container {
+        text-align: center;
+        flex: 1;
+        margin: 1rem;
+      }
+      .tech-icons i {
+        font-size: 3rem;
+        color: #fff;
+        transition: color 0.3s;
+      }
+      .tech-icons i:hover {
+        color: #ff416c;
+      }
+      .tech-name {
+        margin-top: 0.5rem;
+        font-size: 1.2rem;
+      }
+      .description {
+        margin: 2rem;
+        font-size: 1.1rem;
+      }
+      .screenshots {
+        padding: 3rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      .screenshots img {
+        width: 30%;
+        margin: 1rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+        transition: transform 0.3s;
+      }
+      .screenshots img:hover {
+        transform: scale(1.05);
+      }
+      .graph-container {
+        width: 80%;
+        margin: 0 auto;
+      }
+      .progress {
+        margin: 2rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .progress-bar {
+        flex-grow: 1;
+        height: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        position: relative;
+        margin: 0 10px;
+      }
+      .progress-bar::before {
+        content: "";
+        position: absolute;
+        width: 80%;
+        height: 100%;
+        background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      }
+      .footer {
+        padding: 1rem;
+        text-align: center;
+        background: #111;
+      }
+      .footer a {
+        color: #ff416c;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2.5rem;
+        }
+        .tech-icons {
+          flex-direction: column;
+          align-items: center;
+        }
+        .tech-icon-container {
+          margin: 1rem 0;
+        }
+        .screenshots img {
+          width: 80%;
+        }
+      }
+      @media (max-width: 480px) {
+        header h1 {
+          font-size: 2rem;
+        }
+        .download-btn {
+          font-size: 1rem;
+          padding: 10px 20px;
+        }
+        .tech-icons i {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>CMT - Cold Mailing Tool</h1>
+      <div class="download-btn" id="download-btn">Download App</div>
+    </header>
+
+    <section class="technologies">
+      <h2>Technologies Used</h2>
+      <div class="tech-icons">
+        <div class="tech-icon-container">
+          <i class="fab fa-android"></i>
+          <div class="tech-name">Android</div>
+        </div>
+        <div class="tech-icon-container">
+          <i class="fab fa-python"></i>
+          <div class="tech-name">Python</div>
+        </div>
+        <div class="tech-icon-container">
+          <i class="fab fa-aws"></i>
+          <div class="tech-name">AWS EC2</div>
+        </div>
+        <div class="tech-icon-container">
+          <i class="fas fa-server"></i>
+          <div class="tech-name">Gunicorn</div>
+        </div>
+        <div class="tech-icon-container">
+          <i class="fas fa-database"></i>
+          <div class="tech-name">Database</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="description">        
+        <div>
+            <h2>Description:</h2>
+            <p><strong>CMT</strong> is a powerful, user-friendly application designed to streamline your email management. Whether you need to send customized emails, manage sent emails, or save drafts, CMT simplifies the process for personal and professional use. Seamlessly integrated with Firebase for secure cloud storage, CMT ensures that all your sent emails are stored and easily retrievable whenever needed.</p>
+            <p>With CMT, you can:</p>
+            <ul>
+                <li>Quickly compose and send personalized emails</li>
+                <li>View and manage your sent emails, all in one place</li>
+                <li>Easily resend emails with a single tap</li>
+                <li>Enjoy a smooth, intuitive interface designed with Jetpack Compose</li>
+            </ul>
+        </div>
+
+        <div>
+            <h2>Key Features:</h2>
+            <ul>
+                <li><strong>Email Management:</strong> Store, view, and manage all your sent emails.</li>
+                <li><strong>Firebase Integration:</strong> Securely save your email history in the cloud for future access.</li>
+                <li><strong>Customizable Interface:</strong> Intuitive design built using Jetpack Compose to provide a fluid user experience.</li>
+                <li><strong>Secure & Private:</strong> Ensures that your data remains protected with Firebase's robust authentication system.</li>
+            </ul>
+        </div>
+
+    <section class="screenshots">
+      <img src="../assets/cmt1.jpg" alt="App Screenshot 1" />
+      <img src="../assets/cmt2.jpg" alt="App Screenshot 2" />
+      <img src="../assets/cmt3.jpg" alt="App Screenshot 3" />
+      <img src="../assets/cmt4.jpg" alt="App Screenshot 4" />
+      <img src="../assets/cmt5.jpg" alt="App Screenshot 5" />
+      <img src="../assets/cmt6.jpg" alt="App Screenshot 6" />
+    </section>
+    <section class="graph-container">
+        <div class="progress">
+          <span>Jetpack Compose</span>
+          <div class="progress-bar" style="width: 80%;"></div>
+          <span>80%</span>
+        </div>
+        <div class="progress">
+          <span>Firebase</span>
+          <div class="progress-bar" style="width: 85%;"></div>
+          <span>85%</span>
+        </div>
+        <div class="progress">
+          <span>Google Cloud Integration</span>
+          <div class="progress-bar" style="width: 75%;"></div>
+          <span>75%</span>
+        </div>
+        <div class="progress">
+          <span>Jetpack Navigation</span>
+          <div class="progress-bar" style="width: 70%;"></div>
+          <span>70%</span>
+        </div>
+        <div class="progress">
+          <span>Compose UI Design</span>
+          <div class="progress-bar" style="width: 90%;"></div>
+          <span>90%</span>
+        </div>
+        <div class="progress">
+          <span>Firebase Authentication</span>
+          <div class="progress-bar" style="width: 85%;"></div>
+          <span>85%</span>
+        </div>
+      </section>
+      
+
+    <footer class="footer">
+      <p>
+        &copy; 2024 Developed by
+        <a href="https://yuvrajsingh.tech"> Yuvraj Singh</a>
+      </p>
+    </footer>
+    <script>
+      const downloadBtn = document.getElementById("download-btn");
+      downloadBtn.addEventListener("click", async () => {
+        alert(`Your app will download automatically.`);
+        window.location.href = "../assets/CMT.apk";
+      });
+    </script>
+  </body>
+</html>
