@@ -127,7 +127,8 @@
             const loader = document.getElementById("loader");
             const resultBox = document.getElementById("resultBox");
             loader.style.display = 'block';
-            resultBox.style.display = 'none'; 
+            resultBox.style.display = 'none';
+             console.log("iguy",requestBody);
             try {
                 const response = await fetch("https://fpm.yuvrajsingh.tech/generateCelestialInfo", {
                     method: "POST",
@@ -199,6 +200,7 @@
             <button type="submit">Search</button>
         </form>
         <div id="resultBox"></div>
+        <div id="loader" class="loader"><img src="../assets/loading.gif" alt="Data is coming..."></div>
         <div id="loader" class="loader">Fetching Data ......</div>
     </div>
 </body>
