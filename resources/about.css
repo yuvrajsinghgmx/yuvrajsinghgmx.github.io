@@ -1,53 +1,122 @@
-.box{
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-}
-.aboutbox{
-    width: 100%;
-    height: 300px;
+/* body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: black;
+    color: #FFFFFF;
+    overflow: hidden;
+} */
+
+.page-container {
     display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-.etxt{
-    border: 0.1px solid black;
-    border-radius: 20px;
-    padding-top: 20px;
-}
-.experiencebox{
-    width: 100%;
-    height: 300px;
-}
-.timeline-container {
-    display: flex;
-    align-items: flex-start;
-    margin-top: 80px;
-    margin-left: 70px;
-}
-  
-.timeline {
+    justify-content: space-between;
+    align-items: center;
+    height: 90vh;
     position: relative;
+}
+
+.card-container {
+    position: relative;
+    width: 70%;
+    height: 80%;
+    perspective: 1000px;
+}
+
+.card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: solid lightblue 0.2px;
+    /* background: linear-gradient(185deg, #1C1C1C 10%, #026e95); */
+    border-radius:  15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.card h3 {
+    font-size: 24px;
+    color: #00AEEF;
+}
+
+.card p {
+    font-size: 16px;
+    color: #CCCCCC;
+    margin-top: 10px;
+    /* padding: 0 20px; */
+}
+
+.card.hidden {
+    transform: scale(0.8) translateX(30px);
+    opacity: 0;
+}
+
+.scroll-dots {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.dot.active {
+    background: #00AEEF;
+    transform: scale(1.2);
+}
+
+.rdir {
+    width: 200px;
+    transform: rotate(0deg); 
+}
+.ldir {
+    width: 200px;
+    transform: rotate(180deg);
+    visibility: hidden;
+}
+
+.card .content {
+    flex: 1;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: left;
+    justify-content: center;
+    color: white;
+    text-align: left;
 }
-  
-.circle {
-    width: 10px;
-    height: 10px;
-    background-color: rgb(91, 198, 189);
-    border-radius: 50%;
-    z-index: 1;
+
+.card .pic  {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    border-radius: 15px;
+    flex: 1;
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+    transition: transform 0.3s ease-in-out;
+
+}   
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
 }
-.h{
-    height: 200px;
-} 
-.line {
-    width: 1px;
-    background-color: white;
-    flex-grow: 1;
+
+@media (max-width: 780px) {
+
+    .pic{
+        display: none;
+    }
+    .nav-button{
+        display: none;
+        visibility: hidden;
+    }
 }
-.timeline-text {
-    margin-left: 20px;
-}
-  

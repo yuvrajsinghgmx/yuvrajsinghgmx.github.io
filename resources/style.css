@@ -143,7 +143,6 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-/* Cursor Style */
 #custom-cursor {
   position: absolute;
   width: 40px;
