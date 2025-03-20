@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PatientCure - Data Deletion Request</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #e74c3c;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --border-radius: 8px;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f2f5;
+        }
+        
+        .container {
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius);
+            padding: 30px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--accent-color);
+            position: relative;
+        }
+        
+        header:after {
+            content: '';
+            position: absolute;
+            left: 30%;
+            right: 30%;
+            height: 3px;
+            bottom: -3px;
+            background-color: var(--primary-color);
+        }
+        
+        .logo {
+            font-size: 2.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .logo span:first-child {
+            color: var(--primary-color);
+        }
+        
+        .logo span:last-child {
+            color: var(--secondary-color);
+        }
+        
+        h1 {
+            color: var(--dark-color);
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-top: 30px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        p {
+            margin-bottom: 20px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+        
+        .section:hover {
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            background: linear-gradient(to right, transparent, var(--light-color), transparent);
+        }
+        
+        .top-decoration {
+            height: 10px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--accent-color));
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            margin-bottom: 0;
+        }
+        
+        .highlight {
+            background-color: rgba(46, 204, 113, 0.1);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        .info-box {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #17a2b8;
+            border-radius: 4px;
+        }
+        
+        form {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+        
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-delete {
+            background-color: var(--accent-color);
+        }
+        
+        .btn-delete:hover {
+            background-color: #c0392b;
+        }
+        
+        .steps {
+            counter-reset: step-counter;
+            margin: 20px 0;
+            padding: 0;
+        }
+        
+        .step {
+            list-style-type: none;
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .step:last-child {
+            border-bottom: none;
+        }
+        
+        .step:before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: var(--secondary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+        }
+        
+        /* Confirmation and redirect styling */
+        #confirmationPage {
+            display: none;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .success-icon {
+            font-size: 80px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .success-message {
+            font-size: 24px;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+        
+        .countdown {
+            font-size: 18px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .progress-bar-container {
+            width: 100%;
+            height: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            width: 0%;
+            border-radius: 5px;
+            transition: width 1s linear;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .logo {
+                font-size: 2.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="mainContent">
+        <div class="top-decoration"></div>
+        <header>
+            <div class="logo"><span>Patient</span><span>Cure</span></div>
+            <h1>Data Deletion Request</h1>
+        </header>
+        
+        <div class="section">
+            <h2>Your Right to Data Deletion</h2>
+            <p>At PatientCure, we respect your privacy and your right to control your personal data. This page explains how you can request the deletion of your personal data from our systems in accordance with applicable privacy laws.</p>
+            
+            <div class="info-box">
+                <strong>Important:</strong> When we delete your account, we remove all personally identifiable information and medical data associated with your account. This action cannot be undone. You will lose access to your account history, saved reports, and any analysis results.
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>How to Request Data Deletion</h2>
+            <p>You can request deletion of your personal data in the following ways:</p>
+            
+            <ol class="steps">
+                <li class="step">
+                    <strong>Email Request:</strong> Send an email to <span class="highlight">yuvrajsinghgmx@gmail.com</span> with the subject line "Data Deletion Request" and include your account email address in the body.
+                </li>
+                <li class="step">
+                    <strong>Web Form:</strong> Complete the form below, and we will process your request.
+                </li>
+            </ol>
+        </div>
+        
+        <div class="section">
+            <h2>Data Deletion Request Form</h2>
+            <form id="deletionForm">
+                <div class="form-group">
+                    <label for="email">Email Address associated with your account *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reason">Reason for deletion (optional)</label>
+                    <select id="reason" name="reason">
+                        <option value="">-- Please select a reason (optional) --</option>
+                        <option value="no_longer_use">No longer using the app</option>
+                        <option value="privacy_concerns">Privacy concerns</option>
+                        <option value="data_accuracy">Concerns about data accuracy</option>
+                        <option value="other">Other reason</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="comments">Additional Comments (optional)</label>
+                    <textarea id="comments" name="comments"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" required>
+                        I understand that this action will permanently delete my account and all associated data and cannot be undone. *
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn-delete">Submit Deletion Request</button>
+            </form>
+        </div>
+        
+        <div class="section">
+            <h2>What Happens Next</h2>
+            <p>After submitting your request:</p>
+            <ul>
+                <li>We will send a confirmation email to verify your identity</li>
+                <li>Once verified, we will process your deletion request within 30 days</li>
+                <li>You will receive a confirmation email when your data has been deleted</li>
+                <li>Any data retained for legal compliance purposes will be deleted when no longer required</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Data Retention for Legal Purposes</h2>
+            <p>In some cases, we may need to retain certain information for legal compliance, fraud prevention, or other legitimate business purposes. Any such data will be minimized and securely stored with restricted access until it can be safely deleted.</p>
+        </div>
+        
+        <div class="info-box">
+            <strong>Need Help?</strong> If you have any questions about the data deletion process or need assistance, please contact our privacy team at <span class="highlight">yuvrajsinghgmx@gmail.com</span>.
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 <span class="highlight">PatientCure Health Technologies</span>. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <div class="container" id="confirmationPage">
+        <div class="top-decoration"></div>
+        <div class="success-icon">✓</div>
+        <h1 class="success-message">Request Submitted Successfully</h1>
+        
+        <p>Thank you for submitting your data deletion request. We have sent a verification email to your inbox. Please follow the instructions in the email to confirm your identity and complete the deletion process.</p>
+        
+        <div class="info-box">
+            <strong>Important:</strong> If you don't receive the email within 10 minutes, please check your spam folder or contact us at <span class="highlight">yuvrajsinghgmx@gmail.com</span>.
+        </div>
+        
+        <div class="countdown">
+            Redirecting to homepage in <span id="seconds">5</span> seconds
+        </div>
+        
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        
+        <p>If you're not redirected automatically, <a href="index.html">click here</a> to return to the home page.</p>
+        
+        <footer>
+            <p>&copy; 2025 <span class="highlight">PatientCure Health Technologies</span>. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script>
+        document.getElementById('deletionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            document.getElementById('mainContent').style.display = 'none';
+            
+            document.getElementById('confirmationPage').style.display = 'block';
+            
+            let seconds = 5;
+            const countdownElement = document.getElementById('seconds');
+            const progressBar = document.getElementById('progressBar');
+            
+            progressBar.style.width = '0%';
+            
+            const countdown = setInterval(function() {
+                seconds--;
+                countdownElement.textContent = seconds;
+                
+                const progressPercentage = (5 - seconds) * 20;
+                progressBar.style.width = progressPercentage + '%';
+                
+                if (seconds <= 0) {
+                    clearInterval(countdown);
+                    window.location.href = 'pcdel.html';
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
