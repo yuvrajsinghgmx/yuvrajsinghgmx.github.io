@@ -9,11 +9,32 @@ body {
   background-color: black;
   font-family: Baloo_Bhai;
   color: #fff;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin: 0;
+  padding-left: 10%;
+  padding-right: 10%;
   text-align: center;
   margin-top: 0px;
+  position: relative;
 }
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  width: 10%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("../assets/p1.svg");
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  background-position: center top;
+}
+
+body::before { left: 0; }
+body::after  { right: 0; transform: scaleX(-1); }
+
 nav {
   margin-bottom: clamp(20px, 3vw, 40px);
 }
