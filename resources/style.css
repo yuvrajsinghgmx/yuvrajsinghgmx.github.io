@@ -14,6 +14,9 @@ body {
   text-align: center;
   margin-top: 0px;
 }
+nav {
+  margin-bottom: clamp(20px, 3vw, 40px);
+}
 .menu {
   text-decoration: none;
   padding: 20px;
@@ -79,9 +82,13 @@ ul li:first-child {
 .name {
   z-index: -1;
   cursor: none;
+  display: block;
+  width: min(100%, 1000px);
+  margin: 0 auto;
   border-radius: 5px;
   font-size: 40px;
   box-shadow: 0 5px 30px 0 rgba(22, 32, 220, 0.37);
+  box-sizing: border-box;
 }
 
 .social-links {
@@ -138,6 +145,20 @@ ul li:first-child {
   background: linear-gradient(45deg, #ff6b6b, #ff8787, #ffc4a3);
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(255, 107, 107, 0.5);
+}
+
+#blogs {
+  width: 100%;
+  height: calc(100dvh - 150px);
+  min-height: 520px;
+}
+
+.blogs-host {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  background: #000;
+  overflow: hidden;
 }
 
 .hidden {
@@ -260,5 +281,10 @@ a {
   }
   .about-design-div {
     display: none;
+  }
+
+  #blogs {
+    height: calc(100dvh - 120px);
+    min-height: 420px;
   }
 }
