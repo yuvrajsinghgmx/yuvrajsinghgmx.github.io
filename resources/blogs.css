@@ -58,10 +58,12 @@ body {
   display: grid;
   grid-template-columns: minmax(280px, 33%) 1fr;
   grid-template-rows: 1fr;
+  grid-template-areas: "topics article";
   gap: 20px;
 }
 
 .topics-pane {
+  grid-area: topics;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -173,6 +175,7 @@ body {
 }
 
 .article-pane {
+  grid-area: article;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -259,12 +262,29 @@ body {
 }
 
 @media (max-width: 960px) {
-  .blogs-layout {
+  .blogs-layout,
+  .embed-mode .blogs-layout,
+  .blogs-embedded .blogs-layout {
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "article"
+      "topics";
     min-height: auto;
+    height: auto;
+  }
+
+  .article-pane {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    position: static;
+    z-index: auto;
   }
 
   .topics-pane {
-    min-height: 280px;
+    min-height: auto;
+    position: static;
+    z-index: auto;
   }
 }

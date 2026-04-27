@@ -94,12 +94,18 @@ function initBlogsPage(root = document) {
   });
 
   if (articlePane) {
+    const shouldTrapArticleScroll = () => !window.matchMedia('(max-width: 960px)').matches;
+
     articlePane.addEventListener('wheel', (event) => {
-      event.stopPropagation();
+      if (shouldTrapArticleScroll()) {
+        event.stopPropagation();
+      }
     }, { passive: true });
 
     articlePane.addEventListener('touchmove', (event) => {
-      event.stopPropagation();
+      if (shouldTrapArticleScroll()) {
+        event.stopPropagation();
+      }
     }, { passive: true });
   }
 
