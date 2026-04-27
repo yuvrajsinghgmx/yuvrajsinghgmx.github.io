@@ -119,6 +119,10 @@ window.onload = function () {
         section.classList.add("hidden");
       }
     });
+
+    if (sectionToShow === blogs) {
+      window.history.replaceState({}, "", "#blogs");
+    }
   }
 
   aboutbtn.addEventListener("click", (event) => {
@@ -137,7 +141,10 @@ window.onload = function () {
     });
   });
 
-  if (window.location.hash === "#blogs") {
+  const initialParams = new URLSearchParams(window.location.search);
+  const shouldOpenBlogs = window.location.hash === "#blogs" || initialParams.get("section") === "blogs";
+
+  if (shouldOpenBlogs) {
     loadBlogsSection().catch(() => {
       if (blogsHost) {
         blogsHost.innerHTML = "<p style='padding:16px;'>Unable to load blogs right now.</p>";

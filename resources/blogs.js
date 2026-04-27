@@ -23,6 +23,21 @@ function initBlogsPage(root = document) {
   let activeItemIndex = 0;
   let scrollTimer = null;
 
+  function getInitialArticleKey() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('article') || '';
+  }
+
+  function syncArticleInUrl(articleKey) {
+    if (!articleKey) return;
+    const url = new URL(window.location.href);
+    url.searchParams.set('article', articleKey);
+    if (url.searchParams.get('section') === 'blogs' || window.location.hash === '#blogs') {
+      url.hash = 'blogs';
+    }
+    window.history.replaceState({}, '', url);
+  }
+
   function pageWidth() {
     return topicsTrack.clientWidth;
   }
@@ -54,6 +69,7 @@ function initBlogsPage(root = document) {
     if (!selectedItem) return;
 
     showArticle(selectedItem.dataset.article);
+    syncArticleInUrl(selectedItem.dataset.article);
 
     if (shouldScroll) {
       const pageIndex = getPageIndexForItem(selectedItem);
@@ -113,7 +129,9 @@ function initBlogsPage(root = document) {
     setActiveItem(activeItemIndex);
   });
 
-  setActiveItem(0);
+  const initialArticleKey = getInitialArticleKey();
+  const initialIndex = topicItems.findIndex((item) => item.dataset.article === initialArticleKey);
+  setActiveItem(initialIndex >= 0 ? initialIndex : 0);
 }
 
 window.initBlogsPage = initBlogsPage;

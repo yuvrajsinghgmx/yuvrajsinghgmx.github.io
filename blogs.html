@@ -4,6 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blogs | Yuvraj Singh</title>
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("embed") === "1") {
+          return;
+        }
+
+        const target = new URL("index.html", window.location.href);
+        target.searchParams.set("section", "blogs");
+
+        const article = params.get("article");
+        if (article) {
+          target.searchParams.set("article", article);
+        }
+
+        target.hash = "blogs";
+        window.location.replace(target.toString());
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -214,7 +233,6 @@
             My usual rule is simple: one strong accent, one neutral surface family, and one interaction language. This keeps the layout calm while still
             looking distinctive.
           </p>
-          <a class="read-full" href="blogs/clean-portfolio-layouts.html">Open full article</a>
         </article>
 
         <article class="article-view" data-article="section-switching-js">
@@ -231,7 +249,6 @@
           <p>
             Lightweight does not mean fragile. A small amount of structure in naming and event handling prevents surprising regressions.
           </p>
-          <a class="read-full" href="blogs/section-switching-js.html">Open full article</a>
         </article>
 
         <article class="article-view" data-article="mobile-first-nav">
@@ -248,7 +265,6 @@
           <p>
             On larger screens, I progressively enhance with richer hover states and spacing rather than inventing a separate interaction model.
           </p>
-          <a class="read-full" href="blogs/mobile-first-nav.html">Open full article</a>
         </article>
 
         <article class="article-view" data-article="api-security-checklist">
@@ -265,7 +281,6 @@
           <p>
             Security is a process, not a launch task. I schedule audits as part of normal iteration, not as emergency responses.
           </p>
-          <a class="read-full" href="blogs/api-security-checklist.html">Open full article</a>
         </article>
 
         <article class="article-view" data-article="hosting-from-zero">
@@ -282,7 +297,6 @@
           <p>
             Once monitoring is in place, deployment confidence increases because troubleshooting starts with evidence instead of guesses.
           </p>
-          <a class="read-full" href="blogs/hosting-from-zero.html">Open full article</a>
         </article>
 
         <article class="article-view" data-article="debugging-production-issues">
