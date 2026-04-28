@@ -110,6 +110,41 @@ window.onload = function () {
     blogsLoaded = true;
   }
 
+  function updateUrlForSection(sectionToShow) {
+    const url = new URL(window.location.href);
+    url.hash = sectionToShow.id;
+
+    if (sectionToShow === blogs) {
+      url.searchParams.set("section", "blogs");
+    } else {
+      url.searchParams.delete("article");
+      url.searchParams.delete("section");
+    }
+
+    window.history.replaceState({}, "", url);
+  }
+
+  function resolveInitialSection() {
+    const url = new URL(window.location.href);
+    const sectionParam = url.searchParams.get("section");
+    const hashSection = url.hash ? url.hash.replace(/^#/, "") : "";
+    const targetSectionId = sectionParam || hashSection;
+
+    switch (targetSectionId) {
+      case "about":
+        return about;
+      case "blogs":
+        return blogs;
+      case "resume":
+        return resume;
+      case "contact":
+        return contact;
+      case "home":
+      default:
+        return home;
+    }
+  }
+
   function showSection(sectionToShow) {
     const sections = [about, blogs, resume, home, contact];
     sections.forEach((section) => {
@@ -120,10 +155,7 @@ window.onload = function () {
       }
     });
     document.body.classList.toggle("blogs-open", sectionToShow === blogs);
-
-    if (sectionToShow === blogs) {
-      window.history.replaceState({}, "", "#blogs");
-    }
+    updateUrlForSection(sectionToShow);
   }
 
   aboutbtn.addEventListener("click", (event) => {
@@ -142,10 +174,9 @@ window.onload = function () {
     });
   });
 
-  const initialParams = new URLSearchParams(window.location.search);
-  const shouldOpenBlogs = window.location.hash === "#blogs" || initialParams.get("section") === "blogs";
+  const initialSection = resolveInitialSection();
 
-  if (shouldOpenBlogs) {
+  if (initialSection === blogs) {
     loadBlogsSection().catch(() => {
       if (blogsHost) {
         blogsHost.innerHTML = "<p style='padding:16px;'>Unable to load blogs right now.</p>";
@@ -157,6 +188,7 @@ window.onload = function () {
     if (blogsHost) {
       blogsHost.innerHTML = "";
     }
+    showSection(initialSection);
   }
 
   resumebtn.addEventListener("click", (event) => {
