@@ -119,6 +119,7 @@ window.onload = function () {
         section.classList.add("hidden");
       }
     });
+    document.body.classList.toggle("blogs-open", sectionToShow === blogs);
 
     if (sectionToShow === blogs) {
       window.history.replaceState({}, "", "#blogs");

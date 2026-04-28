@@ -17,6 +17,20 @@ body {
   position: relative;
 }
 
+body.blogs-open {
+  overflow: hidden;
+  min-height: 100dvh;
+  height: 100dvh;
+}
+
+body.blogs-open #blogs,
+body.blogs-open #blogs-host,
+body.blogs-open .blogs-embedded {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  max-width: 100%;
+  height: 100dvh;
+}
 body::before,
 body::after {
   content: "";
@@ -319,5 +333,19 @@ a {
   #blogs {
     height: calc(100dvh - 120px);
     min-height: 420px;
+  }
+}
+@media (max-width: 960px) {
+  body.blogs-open {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+  }
+
+  body.blogs-open #blogs,
+  body.blogs-open #blogs-host,
+  body.blogs-open .blogs-embedded {
+    overflow-y: visible;
+    height: auto;
   }
 }
