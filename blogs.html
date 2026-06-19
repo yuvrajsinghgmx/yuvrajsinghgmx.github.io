@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogs | Yuvraj Singh</title>
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("embed") === "1") {
+          return;
+        }
+
+        const target = new URL("index.html", window.location.href);
+        target.searchParams.set("section", "blogs");
+
+        const article = params.get("article");
+        if (article) {
+          target.searchParams.set("article", article);
+        }
+
+        target.hash = "blogs";
+        window.location.replace(target.toString());
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="resources/blogs.css" />
+  </head>
+  <body>
+    <main class="blogs-layout">
+      <aside class="topics-pane" aria-label="Blog topics">
+        <!-- <div class="pane-title-wrap">
+          <p class="pane-kicker">Topics</p>
+        </div>
+ -->
+
+        <div id="topicsTrack" class="topics-track">
+          <div class="topics-page">
+            <button class="topic-item active" data-article="clean-portfolio-layouts" type="button">
+              <img class="topic-icon" src="assets/logo8.png" alt="blog topic icon">
+              <span class="topic-title">LOREM IPSUM</span>
+            </button>
+            <button class="topic-item" data-article="section-switching-js" type="button">
+              <img class="topic-icon" src="assets/logo8.png" alt="blog topic icon">
+              <span class="topic-title">LOREM IPSUM</span>
+            </button>
+            <button class="topic-item" data-article="mobile-first-nav" type="button">
+              <img class="topic-icon" src="assets/logo8.png" alt="blog topic icon">
+              <span class="topic-title">LOREM IPSUM</span>
+            </button>
+            <button class="topic-item" data-article="api-security-checklist" type="button">
+              <img class="topic-icon" src="assets/logo8.png" alt="blog topic icon">
+              <span class="topic-title">LOREM IPSUM</span>
+            </button>
+            <button class="topic-item" data-article="hosting-from-zero" type="button">
+              <img class="topic-icon" src="assets/logo8.png" alt="blog topic icon">
+              <span class="topic-title">LOREM IPSUM</span>
+            </button>
+          </div>
+
+          <div class="topics-page">
+            <button class="topic-item" data-article="debugging-production-issues" type="button">
+              <img class="topic-icon" src="assets/logo8.png" alt="blog topic icon">
+              <span class="topic-title">Debugging Production Issues Calmly</span>
+            </button>
+          </div>
+        </div>
+        <div class="topic-controls">
+          <button id="topicPrev" class="topic-nav" type="button" aria-label="Previous topic">
+            Previous
+          </button>
+          <span id="topicPage" class="topic-page" aria-live="polite">1 / 2</span>
+          <button id="topicNext" class="topic-nav" type="button" aria-label="Next topic">
+            Next
+          </button>
+        </div>
+
+      </aside>
+
+      <section class="article-pane" aria-label="Article preview">
+        <article class="article-view active" data-article="clean-portfolio-layouts">
+          <p class="article-meta">Design Systems</p>
+          <h2>How I build cleaner portfolio layouts</h2>
+          <p>
+            A clean portfolio starts with rhythm. I avoid random spacing by defining a few spacing scales and applying them consistently to headers,
+            cards, and content blocks. Once spacing is predictable, the page immediately feels intentional.
+          </p>
+          <p>
+            I also design around content priority, not visual effects. First identify what a visitor should understand in 5 seconds, then shape the
+            hierarchy to support that goal. Strong hierarchy beats complicated decoration every time.
+          </p>
+          <p>
+            My usual rule is simple: one strong accent, one neutral surface family, and one interaction language. This keeps the layout calm while still
+            looking distinctive.
+          </p>
+                    <p>
+            A clean portfolio starts with rhythm. I avoid random spacing by defining a few spacing scales and applying them consistently to headers,
+            cards, and content blocks. Once spacing is predictable, the page immediately feels intentional.
+          </p>
+          <p>
+            I also design around content priority, not visual effects. First identify what a visitor should understand in 5 seconds, then shape the
+            hierarchy to support that goal. Strong hierarchy beats complicated decoration every time.
+          </p>
+          <p>
+            My usual rule is simple: one strong accent, one neutral surface family, and one interaction language. This keeps the layout calm while still
+            looking distinctive.
+          </p>
+                    <p>
+            A clean portfolio starts with rhythm. I avoid random spacing by defining a few spacing scales and applying them consistently to headers,
+            cards, and content blocks. Once spacing is predictable, the page immediately feels intentional.
+          </p>
+          <p>
+            I also design around content priority, not visual effects. First identify what a visitor should understand in 5 seconds, then shape the
+            hierarchy to support that goal. Strong hierarchy beats complicated decoration every time.
+          </p>
+          <p>
+            My usual rule is simple: one strong accent, one neutral surface family, and one interaction language. This keeps the layout calm while still
+            looking distinctive.
+          </p>          <p>
+            A clean portfolio starts with rhythm. I avoid random spacing by defining a few spacing scales and applying them consistently to headers,
+            cards, and content blocks. Once spacing is predictable, the page immediately feels intentional.
+          </p>
+          <p>
+            I also design around content priority, not visual effects. First identify what a visitor should understand in 5 seconds, then shape the
+            hierarchy to support that goal. Strong hierarchy beats complicated decoration every time.
+          </p>
+          <p>
+            My usual rule is simple: one strong accent, one neutral surface family, and one interaction language. This keeps the layout calm while still
+            looking distinctive.
+          </p>
+                    <p>
+            A clean portfolio starts with rhythm. I avoid random spacing by defining a few spacing scales and applying them consistently to headers,
+            cards, and content blocks. Once spacing is predictable, the page immediately feels intentional.
+          </p>
+          <p>
+            I also design around content priority, not visual effects. First identify what a visitor should understand in 5 seconds, then shape the
+            hierarchy to support that goal. Strong hierarchy beats complicated decoration every time.
+          </p>
+          <p>
+            My usual rule is simple: one strong accent, one neutral surface family, and one interaction language. This keeps the layout calm while still
+            looking distinctive.
+          </p>          <p>
+            A clean portfolio starts with rhythm. I avoid random spacing by defining a few spacing scales and applying them consistently to headers,
+            cards, and content blocks. Once spacing is predictable, the page immediately feels intentional.
+          </p>
+          <p>
+            I also design around content priority, not visual effects. First identify what a visitor should understand in 5 seconds, then shape the
+            hierarchy to support that goal. Strong hierarchy beats complicated decoration every time.
+          </p>
+          <p>
+            My usual rule is simple: one strong accent, one neutral surface family, and one interaction language. This keeps the layout calm while still
+            looking distinctive.
+          </p>          <p>
+            A clean portfolio starts with rhythm. I avoid random spacing by defining a few spacing scales and applying them consistently to headers,
+            cards, and content blocks. Once spacing is predictable, the page immediately feels intentional.
+          </p>
+          <p>
+            I also design around content priority, not visual effects. First identify what a visitor should understand in 5 seconds, then shape the
+            hierarchy to support that goal. Strong hierarchy beats complicated decoration every time.
+          </p>
+          <p>
+            My usual rule is simple: one strong accent, one neutral surface family, and one interaction language. This keeps the layout calm while still
+            looking distinctive.
+          </p>          <p>
+            A clean portfolio starts with rhythm. I avoid random spacing by defining a few spacing scales and applying them consistently to headers,
+            cards, and content blocks. Once spacing is predictable, the page immediately feels intentional.
+          </p>
+          <p>
+            I also design around content priority, not visual effects. First identify what a visitor should understand in 5 seconds, then shape the
+            hierarchy to support that goal. Strong hierarchy beats complicated decoration every time.
+          </p>
+          <p>
+            My usual rule is simple: one strong accent, one neutral surface family, and one interaction language. This keeps the layout calm while still
+            looking distinctive.
+          </p>          <p>
+            A clean portfolio starts with rhythm. I avoid random spacing by defining a few spacing scales and applying them consistently to headers,
+            cards, and content blocks. Once spacing is predictable, the page immediately feels intentional.
+          </p>
+          <p>
+            I also design around content priority, not visual effects. First identify what a visitor should understand in 5 seconds, then shape the
+            hierarchy to support that goal. Strong hierarchy beats complicated decoration every time.
+          </p>
+          <p>
+            My usual rule is simple: one strong accent, one neutral surface family, and one interaction language. This keeps the layout calm while still
+            looking distinctive.
+          </p>          <p>
+            A clean portfolio starts with rhythm. I avoid random spacing by defining a few spacing scales and applying them consistently to headers,
+            cards, and content blocks. Once spacing is predictable, the page immediately feels intentional.
+          </p>
+          <p>
+            I also design around content priority, not visual effects. First identify what a visitor should understand in 5 seconds, then shape the
+            hierarchy to support that goal. Strong hierarchy beats complicated decoration every time.
+          </p>
+          <p>
+            My usual rule is simple: one strong accent, one neutral surface family, and one interaction language. This keeps the layout calm while still
+            looking distinctive.
+          </p>          <p>
+            A clean portfolio starts with rhythm. I avoid random spacing by defining a few spacing scales and applying them consistently to headers,
+            cards, and content blocks. Once spacing is predictable, the page immediately feels intentional.
+          </p>
+          <p>
+            I also design around content priority, not visual effects. First identify what a visitor should understand in 5 seconds, then shape the
+            hierarchy to support that goal. Strong hierarchy beats complicated decoration every time.
+          </p>
+          <p>
+            My usual rule is simple: one strong accent, one neutral surface family, and one interaction language. This keeps the layout calm while still
+            looking distinctive.
+          </p>          <p>
+            A clean portfolio starts with rhythm. I avoid random spacing by defining a few spacing scales and applying them consistently to headers,
+            cards, and content blocks. Once spacing is predictable, the page immediately feels intentional.
+          </p>
+          <p>
+            I also design around content priority, not visual effects. First identify what a visitor should understand in 5 seconds, then shape the
+            hierarchy to support that goal. Strong hierarchy beats complicated decoration every time.
+          </p>
+          <p>
+            My usual rule is simple: one strong accent, one neutral surface family, and one interaction language. This keeps the layout calm while still
+            looking distinctive.
+          </p>          <p>
+            A clean portfolio starts with rhythm. I avoid random spacing by defining a few spacing scales and applying them consistently to headers,
+            cards, and content blocks. Once spacing is predictable, the page immediately feels intentional.
+          </p>
+          <p>
+            I also design around content priority, not visual effects. First identify what a visitor should understand in 5 seconds, then shape the
+            hierarchy to support that goal. Strong hierarchy beats complicated decoration every time.
+          </p>
+          <p>
+            My usual rule is simple: one strong accent, one neutral surface family, and one interaction language. This keeps the layout calm while still
+            looking distinctive.
+          </p>
+        </article>
+
+        <article class="article-view" data-article="section-switching-js">
+          <p class="article-meta">Frontend Patterns</p>
+          <h2>Section switching without a framework</h2>
+          <p>
+            Section toggling can stay tiny. A single function that receives the target section and hides all others is enough for many personal websites.
+            The key is to centralize it so behavior remains predictable as pages grow.
+          </p>
+          <p>
+            I keep controls declarative with data attributes and avoid deeply coupled event handlers. This makes it easier to insert new sections later
+            without rewriting existing logic.
+          </p>
+          <p>
+            Lightweight does not mean fragile. A small amount of structure in naming and event handling prevents surprising regressions.
+          </p>
+        </article>
+
+        <article class="article-view" data-article="mobile-first-nav">
+          <p class="article-meta">UX Thinking</p>
+          <h2>Mobile-first navigation that still feels premium</h2>
+          <p>
+            Mobile navigation needs clarity before animation. I start by reducing choice density and making labels short and obvious. If users need to
+            decode labels, the design has already failed.
+          </p>
+          <p>
+            From there, I treat transitions as communication. Motion should explain location and direction, not just look smooth. Good motion answers,
+            where am I and what changed.
+          </p>
+          <p>
+            On larger screens, I progressively enhance with richer hover states and spacing rather than inventing a separate interaction model.
+          </p>
+        </article>
+
+        <article class="article-view" data-article="api-security-checklist">
+          <p class="article-meta">Backend Reliability</p>
+          <h2>API security checklist I actually use</h2>
+          <p>
+            Security checklists matter only when they are practical. I keep mine focused on repeatable checks: input validation, strict auth rules,
+            granular rate limits, and sane logging hygiene.
+          </p>
+          <p>
+            The highest leverage change for many APIs is consistent authorization boundaries. Endpoints should fail closed by default and verify ownership
+            at every write path.
+          </p>
+          <p>
+            Security is a process, not a launch task. I schedule audits as part of normal iteration, not as emergency responses.
+          </p>
+        </article>
+
+        <article class="article-view" data-article="hosting-from-zero">
+          <p class="article-meta">Deployment Notes</p>
+          <h2>Hosting from zero to a stable live setup</h2>
+          <p>
+            Reliable hosting is mostly about predictability. I document one path from local machine to production and automate each repeatable step until
+            deploys become routine rather than stressful.
+          </p>
+          <p>
+            DNS, SSL, reverse proxy, and process management should be treated as one chain. Most outages happen at boundaries between systems, not inside
+            one tool.
+          </p>
+          <p>
+            Once monitoring is in place, deployment confidence increases because troubleshooting starts with evidence instead of guesses.
+          </p>
+        </article>
+
+        <article class="article-view" data-article="debugging-production-issues">
+          <p class="article-meta">Engineering Process</p>
+          <h2>How I debug production issues without panic</h2>
+          <p>
+            Production debugging is about reducing chaos. I write a short incident timeline first, then validate assumptions with logs, traces, and clear
+            reproduction steps before touching code.
+          </p>
+          <p>
+            Fast fixes are useful, but stable fixes require identifying the system condition that allowed the bug to happen. I prefer one root cause plus
+            one preventive guardrail in every postmortem.
+          </p>
+          <p>
+            A calm process beats heroics. The goal is not just solving today’s issue but making tomorrow’s issue faster to diagnose.
+          </p>
+          <a class="read-full" href="blogs/debugging-production-issues.html">Open full article</a>
+        </article>
+      </section>
+    </main>
+
+    <script src="resources/blogs.js"></script>
+  </body>
+</html>

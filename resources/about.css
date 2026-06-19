@@ -14,6 +14,7 @@ html {
     align-items: center;
     height: 90vh;
     position: relative;
+    gap: 24px;
 }
 
 .card-container {
@@ -92,6 +93,13 @@ html {
     justify-content: center;
     color: white;
     text-align: left;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.card .content::-webkit-scrollbar {
+    display: none;
 }
 
 .card .pic  {
@@ -112,11 +120,61 @@ html {
 
 @media (max-width: 780px) {
 
+    .page-container{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: auto;
+        min-height: 100vh;
+        padding: 0 0 32px;
+    }
+
+    .card-container{
+        width: min(100%, 720px);
+        height: clamp(380px, 78vw, 560px);
+        margin: 0 auto;
+    }
+
+    .card{
+        flex-direction: column;
+    }
+
+    .card .content{
+        padding: 18px;
+        text-align: center;
+    }
+
+    .card h3{
+        font-size: 20px;
+    }
+
+    .card p{
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
     .pic{
         display: none;
     }
     .nav-button{
         display: none;
         visibility: hidden;
+    }
+
+    .scroll-dots{
+        position: static;
+        transform: none;
+        margin-top: 16px;
+        margin-bottom: 8px;
+    }
+
+    .dot{
+        width: 10px;
+        height: 10px;
+    }
+
+    .rdir,
+    .ldir{
+        width: 120px;
     }
 }

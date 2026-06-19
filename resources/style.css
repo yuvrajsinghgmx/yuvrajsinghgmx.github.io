@@ -9,10 +9,48 @@ body {
   background-color: black;
   font-family: Baloo_Bhai;
   color: #fff;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin: 0;
+  padding-left: 10%;
+  padding-right: 10%;
   text-align: center;
   margin-top: 0px;
+  position: relative;
+}
+
+body.blogs-open {
+  overflow: hidden;
+  min-height: 100dvh;
+  height: 100dvh;
+}
+
+body.blogs-open #blogs,
+body.blogs-open #blogs-host,
+body.blogs-open .blogs-embedded {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  max-width: 100%;
+  height: 100dvh;
+}
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  width: 10%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("../assets/pattern.svg");
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  background-position: center top;
+}
+
+body::before { left: 0; }
+body::after  { right: 0; transform: scaleX(-1); }
+
+nav {
+  margin-bottom: clamp(20px, 3vw, 40px);
 }
 .menu {
   text-decoration: none;
@@ -79,9 +117,13 @@ ul li:first-child {
 .name {
   z-index: -1;
   cursor: none;
+  display: block;
+  width: min(100%, 1000px);
+  margin: 0 auto;
   border-radius: 5px;
   font-size: 40px;
   box-shadow: 0 5px 30px 0 rgba(22, 32, 220, 0.37);
+  box-sizing: border-box;
 }
 
 .social-links {
@@ -138,6 +180,32 @@ ul li:first-child {
   background: linear-gradient(45deg, #ff6b6b, #ff8787, #ffc4a3);
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(255, 107, 107, 0.5);
+}
+
+#blogs {
+  width: 100%;
+  height: calc(100dvh - 150px);
+  min-height: 520px;
+}
+
+.blogs-host {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  background: #000;
+  overflow: hidden;
+}
+
+@media (max-width: 960px) {
+  #blogs {
+    height: auto;
+    min-height: 0;
+  }
+
+  .blogs-host {
+    height: auto;
+    overflow: visible;
+  }
 }
 
 .hidden {
@@ -260,5 +328,24 @@ a {
   }
   .about-design-div {
     display: none;
+  }
+
+  #blogs {
+    height: calc(100dvh - 120px);
+    min-height: 420px;
+  }
+}
+@media (max-width: 960px) {
+  body.blogs-open {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+  }
+
+  body.blogs-open #blogs,
+  body.blogs-open #blogs-host,
+  body.blogs-open .blogs-embedded {
+    overflow-y: visible;
+    height: auto;
   }
 }

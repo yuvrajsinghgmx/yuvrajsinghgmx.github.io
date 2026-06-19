@@ -28,7 +28,7 @@ window.onload = function () {
     targetX = targetRect.left + targetRect.width / 2;
     targetY = targetRect.top + targetRect.height / 2;
   }
-    function animateTracker() {
+  function animateTracker() {
     const angle = Math.atan2(trackerY - targetY, trackerX - targetX);
     const desiredX = targetX + Math.cos(angle) * distance;
     const desiredY = targetY + Math.sin(angle) * distance;
@@ -46,14 +46,107 @@ window.onload = function () {
   const resume = document.getElementById("resume");
   const homebtn = document.getElementById("homebtn");
   const home = document.getElementById("home");
+  const blogsbtn = document.getElementById("blogsbtn");
+  const blogs = document.getElementById("blogs");
+  const blogsHost = document.getElementById("blogs-host");
   const contactbtn = document.getElementById("contactbtn");
   const about = document.getElementById("about");
   const contact = document.getElementById("contact");
   const ahome = document.getElementById("ahome");
   const contactbtn2 = document.getElementById("contactbtn2");
+  let blogsLoaded = false;
+
+  function ensureBlogsScript() {
+    return new Promise((resolve, reject) => {
+      if (typeof window.initBlogsPage === "function") {
+        resolve();
+        return;
+      }
+
+      const existing = document.querySelector("script[data-blogs-script='1']");
+      if (existing) {
+        existing.addEventListener("load", () => resolve(), { once: true });
+        existing.addEventListener("error", () => reject(new Error("Failed to load blogs script")), { once: true });
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.src = "resources/blogs.js";
+      script.setAttribute("data-blogs-script", "1");
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error("Failed to load blogs script"));
+      document.body.appendChild(script);
+    });
+  }
+
+  async function loadBlogsSection() {
+    if (blogsLoaded || !blogsHost) return;
+
+    const response = await fetch("blogs.html?embed=1", { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error("Failed to load blogs content");
+    }
+
+    const html = await response.text();
+    const parsed = new DOMParser().parseFromString(html, "text/html");
+    const blogsLayout = parsed.querySelector(".blogs-layout");
+
+    if (!blogsLayout) {
+      throw new Error("Blogs layout not found");
+    }
+
+    const shadowRoot = blogsHost.shadowRoot || blogsHost.attachShadow({ mode: "open" });
+    shadowRoot.innerHTML = `
+      <link rel="stylesheet" href="resources/blogs.css">
+      <div class="blogs-embedded">${blogsLayout.outerHTML}</div>
+    `;
+
+    await ensureBlogsScript();
+
+    if (typeof window.initBlogsPage === "function") {
+      window.initBlogsPage(shadowRoot);
+    }
+
+    blogsLoaded = true;
+  }
+
+  function updateUrlForSection(sectionToShow) {
+    const url = new URL(window.location.href);
+    url.hash = sectionToShow.id;
+
+    if (sectionToShow === blogs) {
+      url.searchParams.set("section", "blogs");
+    } else {
+      url.searchParams.delete("article");
+      url.searchParams.delete("section");
+    }
+
+    window.history.replaceState({}, "", url);
+  }
+
+  function resolveInitialSection() {
+    const url = new URL(window.location.href);
+    const sectionParam = url.searchParams.get("section");
+    const hashSection = url.hash ? url.hash.replace(/^#/, "") : "";
+    const targetSectionId = sectionParam || hashSection;
+
+    switch (targetSectionId) {
+      case "about":
+        return about;
+      case "blogs":
+        return blogs;
+      case "resume":
+        return resume;
+      case "contact":
+        return contact;
+      case "home":
+      default:
+        return home;
+    }
+  }
 
   function showSection(sectionToShow) {
-    const sections = [about, resume, home, contact];
+    const sections = [about, blogs, resume, home, contact];
     sections.forEach((section) => {
       if (section === sectionToShow) {
         section.classList.remove("hidden");
@@ -61,12 +154,42 @@ window.onload = function () {
         section.classList.add("hidden");
       }
     });
+    document.body.classList.toggle("blogs-open", sectionToShow === blogs);
+    updateUrlForSection(sectionToShow);
   }
 
   aboutbtn.addEventListener("click", (event) => {
     event.preventDefault();
     showSection(about);
   });
+
+  blogsbtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    loadBlogsSection().catch(() => {
+      if (blogsHost) {
+        blogsHost.innerHTML = "<p style='padding:16px;'>Unable to load blogs right now.</p>";
+      }
+    }).finally(() => {
+      showSection(blogs);
+    });
+  });
+
+  const initialSection = resolveInitialSection();
+
+  if (initialSection === blogs) {
+    loadBlogsSection().catch(() => {
+      if (blogsHost) {
+        blogsHost.innerHTML = "<p style='padding:16px;'>Unable to load blogs right now.</p>";
+      }
+    }).finally(() => {
+      showSection(blogs);
+    });
+  } else {
+    if (blogsHost) {
+      blogsHost.innerHTML = "";
+    }
+    showSection(initialSection);
+  }
 
   resumebtn.addEventListener("click", (event) => {
     event.preventDefault();
