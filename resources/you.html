@@ -24,6 +24,10 @@
                         <i class="fa-brands fa-android"></i>
                         Download APK
                     </a>
+                    <button class="btn btn-toggle" type="button" id="carouselToggle" aria-pressed="false">
+                        <i class="fa-solid fa-images"></i>
+                        <span>Features / Screenshots</span>
+                    </button>
                     <a class="btn btn-secondary" href="../index.html?section=contact#contact">
                         <i class="fa-solid fa-bug"></i>
                         Report a bug
@@ -35,54 +39,96 @@
                 </div>
             </section>
 
-            <section class="carousel-container">
-                <div class="infinite-scroll">
-                    <div class="shot-card">
-                        <img src="../assets/you/Screenshot_1787918135.png" alt="Sign-in screen" loading="lazy" />
-                    </div>
-                    <div class="shot-card">
-                        <img src="../assets/you/Screenshot_1787918167.png" alt="Statements view" loading="lazy" />
-                    </div>
-                    <div class="shot-card">
-                        <img src="../assets/you/Screenshot_1787918217.png" alt="Home screen" loading="lazy" />
-                    </div>
-                    <div class="shot-card">
-                        <img src="../assets/you/Screenshot_1787918233.png" alt="Edit mode" loading="lazy" />
-                    </div>
-                    <div class="shot-card">
-                        <img src="../assets/you/Screenshot_1787918237.png" alt="App flow" loading="lazy" />
-                    </div>
-                    <div class="shot-card">
-                        <img src="../assets/you/Screenshot_1787918307.png" alt="Daily use" loading="lazy" />
-                    </div>
-                    <div class="shot-card">
-                        <img src="../assets/you/Screenshot_1787918345.png" alt="Settings and privacy" loading="lazy" />
-                    </div>
+            <section class="carousel-container" id="carouselContainer" data-view="screenshots">
+                <div class="carousel-panel carousel-panel-screenshots">
+                    <div class="infinite-scroll">
+                        <div class="shot-card">
+                            <img src="../assets/you/Screenshot_1787918135.png" alt="Sign-in screen" loading="lazy" />
+                        </div>
+                        <div class="shot-card">
+                            <img src="../assets/you/Screenshot_1787918167.png" alt="Statements view" loading="lazy" />
+                        </div>
+                        <div class="shot-card">
+                            <img src="../assets/you/Screenshot_1787918217.png" alt="Home screen" loading="lazy" />
+                        </div>
+                        <div class="shot-card">
+                            <img src="../assets/you/Screenshot_1787918233.png" alt="Edit mode" loading="lazy" />
+                        </div>
+                        <div class="shot-card">
+                            <img src="../assets/you/Screenshot_1787918237.png" alt="App flow" loading="lazy" />
+                        </div>
+                        <div class="shot-card">
+                            <img src="../assets/you/Screenshot_1787918307.png" alt="Daily use" loading="lazy" />
+                        </div>
+                        <div class="shot-card">
+                            <img src="../assets/you/Screenshot_1787918345.png" alt="Settings and privacy" loading="lazy" />
+                        </div>
 
-                    <div class="shot-card" aria-hidden="true">
-                        <img src="../assets/you/Screenshot_1787918135.png" alt="" loading="lazy" />
+                        <div class="shot-card" aria-hidden="true">
+                            <img src="../assets/you/Screenshot_1787918135.png" alt="" loading="lazy" />
+                        </div>
+                        <div class="shot-card" aria-hidden="true">
+                            <img src="../assets/you/Screenshot_1787918167.png" alt="" loading="lazy" />
+                        </div>
+                        <div class="shot-card" aria-hidden="true">
+                            <img src="../assets/you/Screenshot_1787918217.png" alt="" loading="lazy" />
+                        </div>
+                        <div class="shot-card" aria-hidden="true">
+                            <img src="../assets/you/Screenshot_1787918233.png" alt="" loading="lazy" />
+                        </div>
+                        <div class="shot-card" aria-hidden="true">
+                            <img src="../assets/you/Screenshot_1787918237.png" alt="" loading="lazy" />
+                        </div>
+                        <div class="shot-card" aria-hidden="true">
+                            <img src="../assets/you/Screenshot_1787918307.png" alt="" loading="lazy" />
+                        </div>
+                        <div class="shot-card" aria-hidden="true">
+                            <img src="../assets/you/Screenshot_1787918345.png" alt="" loading="lazy" />
+                        </div>
                     </div>
-                    <div class="shot-card" aria-hidden="true">
-                        <img src="../assets/you/Screenshot_1787918167.png" alt="" loading="lazy" />
-                    </div>
-                    <div class="shot-card" aria-hidden="true">
-                        <img src="../assets/you/Screenshot_1787918217.png" alt="" loading="lazy" />
-                    </div>
-                    <div class="shot-card" aria-hidden="true">
-                        <img src="../assets/you/Screenshot_1787918233.png" alt="" loading="lazy" />
-                    </div>
-                    <div class="shot-card" aria-hidden="true">
-                        <img src="../assets/you/Screenshot_1787918237.png" alt="" loading="lazy" />
-                    </div>
-                    <div class="shot-card" aria-hidden="true">
-                        <img src="../assets/you/Screenshot_1787918307.png" alt="" loading="lazy" />
-                    </div>
-                    <div class="shot-card" aria-hidden="true">
-                        <img src="../assets/you/Screenshot_1787918345.png" alt="" loading="lazy" />
-                    </div>
+                </div>
+
+                <div class="carousel-panel carousel-panel-features" aria-hidden="true" hidden>
+                    <ul class="features-list">
+                        <li>Practice typing and keep track of your stats.</li>
+                        <li>Set a private passcode to keep your data and app locked.</li>
+                        <li>Sign in with Google to save your progress to the cloud.</li>
+                        <li>Keep everything in sync between your phone and your account.</li>
+                        <li>Switch between dark and light modes with a clean, modern design.</li>
+                        <li>Easily jump between typing, your stats, and app settings.</li>
+                        <li>Built using the JetPack Compose and Firebase.</li>
+                    </ul>
                 </div>
             </section>
         </main>
     </div>
+
+    <script>
+        const carouselContainer = document.getElementById('carouselContainer');
+        const carouselToggle = document.getElementById('carouselToggle');
+        const screenshotsPanel = carouselContainer.querySelector('.carousel-panel-screenshots');
+        const featuresPanel = carouselContainer.querySelector('.carousel-panel-features');
+        const toggleLabel = carouselToggle.querySelector('span');
+        const toggleIcon = carouselToggle.querySelector('i');
+
+        const setCarouselView = (view) => {
+            const showingFeatures = view === 'features';
+
+            carouselContainer.dataset.view = view;
+            screenshotsPanel.hidden = showingFeatures;
+            screenshotsPanel.setAttribute('aria-hidden', String(showingFeatures));
+            featuresPanel.hidden = !showingFeatures;
+            featuresPanel.setAttribute('aria-hidden', String(!showingFeatures));
+            carouselToggle.setAttribute('aria-pressed', String(showingFeatures));
+            toggleLabel.textContent = showingFeatures ? 'Screenshots' : 'Features';
+            toggleIcon.className = showingFeatures ? 'fa-solid fa-table-cells-large' : 'fa-solid fa-images';
+        };
+
+        carouselToggle.addEventListener('click', () => {
+            setCarouselView(carouselContainer.dataset.view === 'screenshots' ? 'features' : 'screenshots');
+        });
+
+        setCarouselView('screenshots');
+    </script>
 </body>
 </html>
